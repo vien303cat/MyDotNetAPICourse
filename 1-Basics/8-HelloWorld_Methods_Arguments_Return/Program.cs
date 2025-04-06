@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace HelloWorld
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            int[] intsToCompress = new int[] {10, 15, 20, 25, 30, 12, 34};
+namespace HelloWorld{
+    internal class Program{
+        // Main 是靜態的 因此在內部只能調用靜態函式
+        static void Main(string[] args){
+            int[] intsToCompress = new int[] { 10, 15, 20, 25, 30, 12, 34 };
 
             // int totalValue = 0;
 
@@ -32,6 +30,7 @@ namespace HelloWorld
 
             Console.WriteLine(totalValue);
 
+
             //146
 
             totalValue = 0;
@@ -52,7 +51,7 @@ namespace HelloWorld
 
             startTime = DateTime.Now;
 
-            foreach(int intForCompression in intsToCompress)
+            foreach (int intForCompression in intsToCompress)
             {
                 totalValue += intForCompression;
             }
@@ -61,6 +60,16 @@ namespace HelloWorld
 
             Console.WriteLine(totalValue);
 
+            // 希望函式回傳int
+            // private int GetSum()
+            // void GetSum() 不期待函式回傳值
+            // private void GetSum() {
+            //     foreach (int intForCompression in intsToCompress){
+            //         totalValue += intForCompression;
+            //     }
+            //     return totalValue;
+            // }
+
 
             totalValue = 0;
 
@@ -68,7 +77,7 @@ namespace HelloWorld
 
             int index = 0;
 
-            while(index < intsToCompress.Length)
+            while (index < intsToCompress.Length)
             {
                 totalValue += intsToCompress[index];
                 index++;
@@ -88,8 +97,8 @@ namespace HelloWorld
             {
                 totalValue += intsToCompress[index];
                 index++;
-            } 
-            while(index < intsToCompress.Length);
+            }
+            while (index < intsToCompress.Length);
 
             Console.WriteLine((DateTime.Now - startTime).TotalSeconds);
 
@@ -117,7 +126,7 @@ namespace HelloWorld
 
             Console.WriteLine(totalValue);
 
-            int[] intsToCompress2 = new int[] {23, 23, 53, 56, 83, 92};
+            int[] intsToCompress2 = new int[] { 23, 23, 53, 56, 83, 92 };
 
             totalValue = GetSum(intsToCompress2);
 
@@ -125,11 +134,12 @@ namespace HelloWorld
 
         }
 
+        // 將GetSum命名成靜態 放入函式時需要給一個整數陣列命名成intsToCompress 並且會return一個int出去
         static private int GetSum(int[] intsToCompress)
         {
             // int[] intsToCompress = new int[] {10, 15, 20, 25, 30, 12, 34};
             int totalValue = 0;
-            foreach(int intForCompression in intsToCompress)
+            foreach (int intForCompression in intsToCompress)
             {
                 totalValue += intForCompression;
             }

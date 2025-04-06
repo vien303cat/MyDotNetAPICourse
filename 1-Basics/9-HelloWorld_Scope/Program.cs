@@ -5,14 +5,22 @@ namespace HelloWorld
 {
     internal class Program
     {
+        // 全域變數(類域) 設在類別內部 但在方法外部
+        // 這個變數可以在這個類別的所有方法中使用
         static int AccessibleInt = 7;
+
+        static void TestMethod()
+        {
+            console.WriteLine("TestMethod");
+            console.WriteLine(AccessibleInt);
+        }
         static void Main(string[] args)
         {
             int accessibleInt = 5;
             Console.WriteLine(accessibleInt);
-            Console.WriteLine(AccessibleInt);
+            Console.WriteLine(TestMethod());
 
-            int[] intsToCompress = new int[] {10, 15, 20, 25, 30, 12, 34};
+            int[] intsToCompress = new int[] { 10, 15, 20, 25, 30, 12, 34 };
 
             // int totalValue = 0;
 
@@ -57,7 +65,7 @@ namespace HelloWorld
 
             startTime = DateTime.Now;
 
-            foreach(int intForCompression in intsToCompress)
+            foreach (int intForCompression in intsToCompress)
             {
                 totalValue += intForCompression;
             }
@@ -73,7 +81,7 @@ namespace HelloWorld
 
             int index = 0;
 
-            while(index < intsToCompress.Length)
+            while (index < intsToCompress.Length)
             {
                 totalValue += intsToCompress[index];
                 index++;
@@ -101,8 +109,8 @@ namespace HelloWorld
             {
                 totalValue += intsToCompress[index];
                 index++;
-            } 
-            while(index < intsToCompress.Length);
+            }
+            while (index < intsToCompress.Length);
 
             Console.WriteLine((DateTime.Now - startTime).TotalSeconds);
 
@@ -130,7 +138,7 @@ namespace HelloWorld
 
             Console.WriteLine(totalValue);
 
-            int[] intsToCompress2 = new int[] {23, 23, 53, 56, 83, 92};
+            int[] intsToCompress2 = new int[] { 23, 23, 53, 56, 83, 92 };
 
             totalValue = GetSum(intsToCompress2);
 
