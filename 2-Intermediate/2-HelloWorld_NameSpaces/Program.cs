@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
-using HelloWorld.Models;
+using HelloWorld.Models; // 引用在model裡的檔案
 
 namespace HelloWorld
 {
@@ -10,7 +10,8 @@ namespace HelloWorld
     {
         public static void Main(string[] args)
         {
-            Computer myComputer = new Computer() 
+
+            Computer myComputer = new Computer()
             {
                 Motherboard = "Z690",
                 HasWifi = true,
@@ -20,7 +21,7 @@ namespace HelloWorld
                 VideoCard = "RTX 2060"
             };
 
-            Console.WriteLine(myComputer.Price);
+            Console.WriteLine(myComputer);
         }
     }
 }
